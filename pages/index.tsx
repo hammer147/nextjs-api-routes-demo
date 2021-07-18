@@ -11,17 +11,19 @@ const HomePage = () => {
     e.preventDefault()
     const email = emailInputRef.current?.value
     const feedback = feedbackInputRef.current?.value
-    const reqBody = { email, feedback }
 
     fetch('/api/feedback', {
       method: 'POST',
-      body: JSON.stringify(reqBody),
+      body: JSON.stringify({ email, feedback }),
       headers: {
         'Content-Type': 'application/json'
       }
     })
       .then(response => response.json())
       .then(data => console.log(data))
+    
+    emailInputRef.current!.value = ""
+    feedbackInputRef.current!.value = ""
   }
 
   const loadFeedbackHandler = (e: MouseEvent<HTMLButtonElement>) => {
