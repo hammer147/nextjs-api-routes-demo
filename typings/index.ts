@@ -1,5 +1,5 @@
 export type Feedback = {
-  id: string
+  id?: string
   email: string
   feedback: string
 }

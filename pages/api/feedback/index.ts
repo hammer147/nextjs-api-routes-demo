@@ -13,8 +13,7 @@ export const extractFeedback = (filePath: string) => {
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
-    const { email } = req.body
-    const { feedback } = req.body
+    const { email, feedback } = req.body as Feedback
     const newFeedback: Feedback = {
       id: uuidv4(),
       email,
